@@ -1,0 +1,35 @@
+# UTC 2026-10-02T11:39:29.155172+00:00
+# One thread, nice 10, memory cap 4 GiB.
+# Command: cd coates_sujatha_20261002 && OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 flock -n job.lock nice -n 10 timeout --signal=TERM --kill-after=10 600 magma -n -t 1 -l 4294967296 -b case_id:=7b grh:=0 effort:=2 twist:=1 descent.m
+VERSION 2.29-10
+CASE 7b TWIST 1 GRH 0
+FIELD x^7 - 14*x^4 + 7*x^3 + 28*x^2 + 21*x + 8
+CURVE [
+1,
+0,
+0,
+-1,
+-1
+]
+Class groups: default unconditional bounds; clean startup (-n).
+DISCRIMINANT -1977326743
+ROOT_NUMBER 1
+TORSION_BOUND 7
+
+Using model [
+1,
+0,
+0,
+-1,
+-1
+]
+Torsion Subgroup is trivial
+
+WARNING
+Class group unconditional proof is infeasible.
+Hint: to obtain class group proven under GRH, input
+> SetClassGroupBounds("GRH");
+before starting the current calculation.
+
+
+# EXIT 143

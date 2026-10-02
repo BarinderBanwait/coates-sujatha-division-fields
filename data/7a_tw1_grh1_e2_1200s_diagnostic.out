@@ -1,0 +1,90 @@
+# UTC 2026-10-02T11:59:52.634534+00:00
+# One thread, nice 10, memory cap 4 GiB.
+# Command: cd coates_sujatha_20261002 && OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 flock -n job.lock nice -n 10 timeout --signal=TERM --kill-after=10 1200 magma -n -t 1 -l 4294967296 -b case_id:=7a grh:=1 effort:=2 twist:=1 diagnostic:=1 descent.m
+VERSION 2.29-10
+CASE 7a TWIST 1 GRH 1
+FIELD x^7 - 18
+CURVE [
+1,
+0,
+0,
+-1,
+-1
+]
+WARNING: rank upper bounds assume GRH for class-group computations.
+DISCRIMINANT -784147392
+ROOT_NUMBER -1
+TORSION_BOUND 7
+Obtaining class group for
+x^21 + 7*x^20 + 11*x^19 + x^18 + 29*x^17 + 31*x^16 - 207*x^15 - 283*x^14 + 
+    178*x^13 + 774*x^12 + 1676*x^11 + 1948*x^10 - 1140*x^9 - 7012*x^8 - 
+    10652*x^7 - 6060*x^6 + 7976*x^5 + 23032*x^4 + 27464*x^3 + 19144*x^2 + 7592*x
+    + 1352
+GRH bound = 590
+Starting core class group computation with bound 590
+Expected number of random elements per relation: 7
+    Degree = 21
+    Discriminant = 2322524889444393135652695649026048 (34 digits)
+    Sqrt(|disc|) = 48192581269780446 (56 bits)
+    # of automorphisms: 1
+    Factor base creation time: 0.219
+    Factor base up to norm 590 contains 109 primes over 61 rational primes
+    There are 4 trivial relation(s)
+    Parallel test: nt: 1, fb: 109, limit: 1000, job on: 0
+    Computing Bach/Belabas-Friedman formula with bound: 9250.000000 
+
+    INITIALIZATION PHASE DONE -- total time: 1.379
+
+
+    FULL RANK RELATION MATRIX -- search time: 0.274[r]
+
+    Euler test: res/euler: 128.164663665221705868336
+    Euler test: res/euler: 8.01029147907635661677102
+    Euler test: res/euler: 8.01029147907635661677102
+    Euler test: res/euler: 4.00514573953817830838551
+    Euler test: res/euler: 2.00257286976908915419276
+    Euler test: res/euler: 1.00128643488454457709638
+    NOW FINISHED
+    Total class group computation time: 2.270
+    Admin time: 0.095[r]
+Finished core class group computation, time: 2.369
+Class group proof phase
+    Calling package code for relation proof.
+    Starting relation proof on package level.
+    Doing ClassGroupCyclicFactorGenerators modulo 3-th powers.
+    Calling SmithForm for matrix of size 164 x 109
+    Time: 0.010
+    Working on p = 3
+Class group proof time: 0.260
+SUnitGroup : #S = 6 (0 new)
+Obtaining class group for
+x^7 - 18
+GRH bound = 41
+Starting core class group computation with bound 50
+Expected number of random elements per relation: 2
+    Degree = 7
+    Discriminant = -784147392 (9 digits)
+    Sqrt(|disc|) = 28002 (15 bits)
+    # of automorphisms: 1
+    Factor base creation time: 0.000
+    Factor base up to norm 61 contains 17 primes over 16 rational primes
+    There are 3 trivial relation(s)
+    Parallel test: nt: 1, fb: 17, limit: 1000, job on: 0
+    Computing Bach/Belabas-Friedman formula with bound: 1603.000000 
+
+    INITIALIZATION PHASE DONE -- total time: 0.029
+
+
+    FULL RANK RELATION MATRIX -- search time: 0.000
+
+    Euler test: res/euler: 0.992432052503483400294708
+    NOW FINISHED
+    Total class group computation time: 0.049
+    Admin time: 0.000
+Finished core class group computation, time: 0.049
+Class group proof phase
+    h = 1, relation proof skipped.
+Class group proof time: 0.000
+SUnitGroup : #S = 4 (0 new)
+
+# EXIT 143

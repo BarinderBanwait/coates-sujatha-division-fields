@@ -1,0 +1,113 @@
+# UTC 2026-10-02T11:58:49.680465+00:00
+# One thread, nice 10, memory cap 4 GiB.
+# Command: cd coates_sujatha_20261002 && OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 flock -n job.lock nice -n 10 timeout --signal=TERM --kill-after=10 600 magma -n -t 1 -l 4294967296 -b case_id:=5b grh:=0 effort:=2 twist:=1 diagnostic:=1 descent.m
+VERSION 2.29-10
+CASE 5b TWIST 1 GRH 0
+FIELD x^5 + 5*x^3 + 5*x - 1
+CURVE [
+1,
+0,
+0,
+-3,
+-3
+]
+Class groups: default unconditional bounds; clean startup (-n).
+DISCRIMINANT 78125
+ROOT_NUMBER 1
+TORSION_BOUND 10
+Obtaining class group for
+x^5 + 5*x^3 + 5*x - 1
+GRH bound = 12
+Starting core class group computation with bound 100
+Expected number of random elements per relation: 1
+    Degree = 5
+    Discriminant = 78125 (5 digits)
+    Sqrt(|disc|) = 279 (9 bits)
+    # of automorphisms: 1
+    Factor base creation time: 0.000
+    Factor base up to norm 100 contains 22 primes over 20 rational primes
+    There are 3 trivial relation(s)
+    Parallel test: nt: 1, fb: 22, limit: 1000, job on: 0
+    Computing Bach/Belabas-Friedman formula with bound: 854.000000 
+
+    INITIALIZATION PHASE DONE -- total time: 0.030
+
+
+    FULL RANK RELATION MATRIX -- search time: 0.004[r]
+
+    Euler test: res/euler: 1.00405982646319112033070
+    NOW FINISHED
+    Total class group computation time: 0.050
+    Admin time: 0.000
+Finished core class group computation, time: 0.050
+Class group proof phase
+    h = 1, relation proof skipped.
+Class group proof time: 0.000
+SUnitGroup : #S = 3 (0 new)
+Obtaining class group for
+x^10 + 10*x^8 + 35*x^6 - x^5 + 50*x^4 - 5*x^3 + 25*x^2 - 5*x + 4
+GRH bound = 87
+Starting core class group computation with bound 87
+Expected number of random elements per relation: 2
+    Degree = 10
+    Discriminant = -7415771484375 (13 digits)
+    Sqrt(|disc|) = 2723191 (22 bits)
+    # of automorphisms: 2
+    Factor base creation time: 0.010
+    Factor base up to norm 107 contains 24 primes over 12 rational primes
+    There are 3 trivial relation(s)
+    Parallel test: nt: 1, fb: 24, limit: 1000, job on: 0
+    Computing Bach/Belabas-Friedman formula with bound: 2516.000000 
+
+    INITIALIZATION PHASE DONE -- total time: 0.149[r]
+
+
+    FULL RANK RELATION MATRIX -- search time: 0.000
+
+    Euler test: res/euler: 0.989401598245373914043680
+    NOW FINISHED
+    Total class group computation time: 0.195[r]
+    Admin time: 0.000
+Finished core class group computation, time: 0.199
+Class group proof phase
+    Calling package code for relation proof.
+    Starting relation proof on package level.
+    Doing ClassGroupCyclicFactorGenerators modulo 2-th powers.
+    Calling SmithForm for matrix of size 44 x 24
+    Time: 0.010
+    Working on p = 2
+    Class group proof: need to check primes from 107 to 3306
+    Approximately 469 prime numbers to check.
+Class group proof time: 0.198[r]
+Hermite form of relation matrix (no trans):
+    Size of matrix 24 x 44 
+    Doing Hermite modulo 4
+Hermite time: 0.000
+SUnitGroup : #S = 5 (0 new)
+SUnitGroup : #S = 3 (0 new)
+TWO_SELMER_INVARIANTS [ 2 ]
+
+Using model [
+1,
+0,
+0,
+-3,
+-3
+]
+Torsion Subgroup = Z/2
+Computing the 2-Selmer group ... Time: 0.050
+The 2-Selmer group has rank 1
+After 2-descent: 
+    0 <= Rank(E) <= 0
+    Sha(E)[2] is trivial
+
+RANK_BOUNDS [ 0, 0 ]
+POINTS []
+SHA_INFORMATION [
+<2, [ 0, 0 ]>
+]
+CPU_SECONDS 10.360
+MEMORY_BYTES 33652736
+COMPLETED
+
+# EXIT 0

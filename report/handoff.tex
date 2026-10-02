@@ -1,0 +1,78 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,booktabs,array}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\rk}{\operatorname{rank}}
+\newcommand{\Sha}{\mathop{\textnormal{Sha}}}
+\begin{document}
+\begin{center}
+{\Large Points in the Coates--Sujatha division fields}\\[5pt]
+{\normalsize Computational handoff for R. Sujatha \quad 2 October 2026}
+\end{center}
+\vspace{-3mm}
+The question concerns the two curves in Examples 4.7 and 4.8 of [1]:
+\[
+ E_7:y^2+xy=x^3-x-1,\qquad E_5:y^2+xy=x^3-3x-3,
+\]
+and the fields $\Q(E_7[7^\infty])$ and $\Q(E_5[5^\infty])$, respectively.
+
+\textbf{Outcome.} This bounded investigation did not find an infinite-order point in either tower. It did establish rank zero over the whole first division field $\Q(E_5[5])$, unconditionally. For $E_7$, the most promising small field is $K=\Q(\sqrt[7]{18})\subset\Q(E_7[7])$: its root number is $-1$, and a completed 2-Selmer computation gives $\rk E_7(K)\leq1$, assuming GRH for the class-group calculations. Finding one non-torsion point over this septic field would answer the first question unconditionally.
+
+\textbf{Finite fields examined.} Each row denotes $K=\Q(a)$, with $a$ a root of the polynomial shown. Inclusions were checked exactly using division polynomials and rational isogenies; the rank calculations used Magma 2.29-10.
+
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Curve and defining polynomial & Contained in & Rank conclusion\\
+\midrule
+$E_7$, $a^7-18$ & $\Q(E_7[7])$ & $0\leq\rk\leq1$ (GRH)\\[2pt]
+$E_7$, $a^7-14a^4+7a^3+28a^2+21a+8$ & $\Q(E_7[49])$ & $0$ (GRH)\\[2pt]
+$E_5$, $a^5-a^4+4a^3+4a^2-a+13$ & $\Q(E_5[5])$ & $0$ (unconditional)\\[2pt]
+$E_5$, $a^5+5a^3+5a-1$ & $\Q(E_5[25])$ & $0$ (unconditional)\\
+\bottomrule
+\end{tabular}
+\end{center}
+The first quintic field is isomorphic to $\Q(\sqrt[5]{18})$. The two quintic descents took approximately 26 and 10 CPU seconds, and the second septic descent 17 seconds. Each of these three completed descents also returned trivial $\Sha[2]$, with the same qualifications as its rank result. Vanishing over these subfields does not imply vanishing over the infinite towers.
+
+\textbf{Why the full first $5$-division field has rank zero.}
+Put $L=\Q(E_5[5])$ and $F=\Q(\mu_5)$. The Galois submodule $\mu_5\subset E_5[5]$ gives an upper bound of $20$ on $[L:\Q]$. The first quintic above has normal closure with Galois group $C_5\rtimes C_4$ of order $20$, so that normal closure is exactly $L$. For its quintic subfield $K_5$, the permutation-character identity gives
+\[
+ \rk E_5(L)=4\rk E_5(K_5)+\rk E_5(F)-4\rk E_5(\Q).
+\]
+The quintic computation proves the first term zero, while $S(E_5/F)=0$ in [1, Example 4.8] gives the other two ranks zero. Thus $\rk E_5(L)=0$. This is a finite-level conclusion, not a negative answer to the question about $\Q(E_5[5^\infty])$.
+
+\newpage
+\textbf{What the later literature supplies.}
+Rohrlich [2] treats these particular curves. For the conductor-$150$ curve, his \S4, Example 1 gives positive root numbers for the irreducible self-dual Artin twists in the $5$-division tower. Thus the sign does not force rank growth there. For the conductor-$294$ curve, \S5, Example 2 gives many negative signs. Coates--Fukaya--Kato--Sujatha [3, Corollary 6.5] prove lower bounds of order $7^{2n}$ for the $7$-Selmer corank over $\Q(E_7[7^n])$. A Selmer-corank bound is not by itself a Mordell--Weil-rank bound: a divisible part of the Shafarevich--Tate group can account for the difference. These results therefore do not supply an unconditional point for the present question.
+
+\textbf{The concrete obstacle for $E_7$.}
+Over $K=\Q(a)$, $a^7=18$, a default descent spent its time searching for local points at the highly ramified prime above $2$. Supplying locally verified candidates from the formal group overcame that step. The resulting 2-Selmer group has order $2$, and $E_7(K)$ has no rational 2-torsion; hence the rank upper bound is $1$. GRH enters through class-group calculations, not through the local tests. The subsequent attempt to construct and search a 2-cover did not finish with a point or a rank determination. A separate Sage/PARI descent also reached its time limit.
+
+Direct searches in two integral bases, with coefficients from $-5$ to $5$ and 14 selected denominators, found no infinite-order point. Each box contained about $273$ million coordinate representations before sieving; only about $57{,}000$ per box required exact square tests. This is a bounded search, not a height bound for all generators. The root number $-1$ predicts positive rank under BSD, but neither that sign nor the 2-Selmer group alone proves positive Mordell--Weil rank.
+
+\textbf{Suggested continuation.}
+For $E_7$, the clearest next task is to construct a reduced representative of the nontrivial 2-cover over $\Q(\sqrt[7]{18})$ and search that curve for a point. The local hints and reproducible Selmer calculation are saved. A point on the original curve can be certified without GRH: reduction bounds its torsion by $7$, so an exact check that $7P\ne O$ suffices.
+
+For $E_5$, moving beyond the first division field is necessary. Two explicit degree-$10$ subfields of $\Q(E_5[25])$ have defining polynomials
+\[
+ x^{10}-18x^5-324,\qquad x^{10}-54x^5+324.
+\]
+Their inclusions were verified, but no descent was completed over them. They are concrete next targets, with no claim that either has positive rank. More systematic use of the Galois representations may be preferable to a large brute-force field computation.
+
+\textbf{Reproducibility.} Scripts, exact field maps, run logs, and this report are at
+\begin{center}\small
+\url{https://github.com/BarinderBanwait/coates-sujatha-division-fields}.
+\end{center}
+The report contains the conclusions independently of the code. Remote computations used one thread, low priority, a 4 GiB memory cap, and individual time limits. All investigation jobs have stopped.
+
+\vspace{1mm}
+{\footnotesize
+[1] J. Coates and R. Sujatha, \emph{Fine Selmer groups of elliptic curves over $p$-adic Lie extensions}, Math. Ann. \textbf{331} (2005), 809--839, Examples 4.7--4.8.\\[3pt]
+[2] D. E. Rohrlich, \emph{Scarcity and abundance of trivial zeros in division towers}, J. Algebraic Geom. \textbf{17} (2008), 643--675. \href{https://doi.org/10.1090/S1056-3911-08-00462-1}{DOI: 10.1090/S1056-3911-08-00462-1}.\\[3pt]
+[3] J. Coates, T. Fukaya, K. Kato and R. Sujatha, \emph{Root numbers, Selmer groups, and non-commutative Iwasawa theory}, J. Algebraic Geom. \textbf{19} (2010), 19--97. \href{https://doi.org/10.1090/S1056-3911-09-00504-9}{DOI: 10.1090/S1056-3911-09-00504-9}.
+}
+\end{document}

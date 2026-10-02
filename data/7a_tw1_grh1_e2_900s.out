@@ -1,0 +1,28 @@
+# UTC 2026-10-02T11:43:14.694880+00:00
+# One thread, nice 10, memory cap 4 GiB.
+# Command: cd coates_sujatha_20261002 && OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 flock -n job.lock nice -n 10 timeout --signal=TERM --kill-after=10 900 magma -n -t 1 -l 4294967296 -b case_id:=7a grh:=1 effort:=2 twist:=1 descent.m
+VERSION 2.29-10
+CASE 7a TWIST 1 GRH 1
+FIELD x^7 - 18
+CURVE [
+1,
+0,
+0,
+-1,
+-1
+]
+WARNING: rank upper bounds assume GRH for class-group computations.
+DISCRIMINANT -784147392
+ROOT_NUMBER -1
+TORSION_BOUND 7
+
+Using model [
+1,
+0,
+0,
+-1,
+-1
+]
+Torsion Subgroup = Z/7
+
+# EXIT 124

@@ -1,0 +1,41 @@
+# UTC 2026-10-02T11:41:52.148085+00:00
+# One thread, nice 10, memory cap 4 GiB.
+# Command: cd coates_sujatha_20261002 && OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 flock -n job.lock nice -n 10 timeout --signal=TERM --kill-after=10 900 magma -n -t 1 -l 4294967296 -b case_id:=7b grh:=1 effort:=2 twist:=1 descent.m
+VERSION 2.29-10
+CASE 7b TWIST 1 GRH 1
+FIELD x^7 - 14*x^4 + 7*x^3 + 28*x^2 + 21*x + 8
+CURVE [
+1,
+0,
+0,
+-1,
+-1
+]
+WARNING: rank upper bounds assume GRH for class-group computations.
+DISCRIMINANT -1977326743
+ROOT_NUMBER 1
+TORSION_BOUND 7
+
+Using model [
+1,
+0,
+0,
+-1,
+-1
+]
+Torsion Subgroup is trivial
+The 2-Selmer group has rank 0
+After 2-descent: 
+    0 <= Rank(E) <= 0
+    Sha(E)[2] is trivial
+
+RANK_BOUNDS [ 0, 0 ]
+POINTS []
+SHA_INFORMATION [
+<2, [ 0, 0 ]>
+]
+CPU_SECONDS 17.280
+MEMORY_BYTES 33652736
+COMPLETED
+
+# EXIT 0
